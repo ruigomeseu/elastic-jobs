@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150112193857) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "jobs", force: true do |t|
     t.string   "title"
     t.string   "company_name"
@@ -34,8 +37,8 @@ ActiveRecord::Schema.define(version: 20150112193857) do
     t.integer "tag_id"
   end
 
-  add_index "jobs_tags", ["job_id"], name: "index_jobs_tags_on_job_id"
-  add_index "jobs_tags", ["tag_id"], name: "index_jobs_tags_on_tag_id"
+  add_index "jobs_tags", ["job_id"], name: "index_jobs_tags_on_job_id", using: :btree
+  add_index "jobs_tags", ["tag_id"], name: "index_jobs_tags_on_tag_id", using: :btree
 
   create_table "tags", force: true do |t|
     t.string   "name"
@@ -62,8 +65,8 @@ ActiveRecord::Schema.define(version: 20150112193857) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
