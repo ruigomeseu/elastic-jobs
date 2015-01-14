@@ -7,4 +7,12 @@ Rails.application.config.assets.version = '1.0'
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
 
-Rails.application.config.assets.precompile = ['*.js', '*.css', '**/*.js', '**/*.css', 'background.jpg']
+Rails.application.config.assets.precompile = [
+  'jobs.js',
+  'bootstrap-tagsinput.min.js',
+  'application.css',
+  'application.js',
+  'jobs/index.js',
+  'bootstrap-tagsinput.css',
+  'background.jpg'
+]

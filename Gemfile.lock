@@ -157,6 +157,11 @@ GEM
     rails-assets-to-markdown (0.0.2)
       rails-assets-he (~> 0.4.1)
     rails-assets-wow (1.0.2)
+    rails_12factor (0.0.2)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.2)
+    rails_stdout_logging (0.0.3)
     railties (4.1.8)
       actionpack (= 4.1.8)
       activesupport (= 4.1.8)
@@ -265,6 +270,7 @@ DEPENDENCIES
   rails-assets-markdown-js
   rails-assets-to-markdown
   rails-assets-wow
+  rails_12factor
   redcarpet
   require_reloader
   rspec-rails
