@@ -1,5 +1,5 @@
-	source 'https://rubygems.org'
-
+source 'https://rubygems.org'
+source 'https://rails-assets.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
@@ -39,6 +39,17 @@ gem 'devise'
 gem 'hash_validator'
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'autoprefixer-rails'
+gem 'rails-assets-classie'
+gem 'rails-assets-wow'
+gem 'rails-assets-animate.css'
+gem 'rails-assets-bootstrap-markdown'
+gem 'rails-assets-to-markdown'
+gem 'rails-assets-markdown-js'
+gem 'redcarpet'
+gem 'figaro'
+gem 'stripe'
+gem 'paperclip'
+gem 'aws-sdk'
 
 group :development do
 	gem 'pry'

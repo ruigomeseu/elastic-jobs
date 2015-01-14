@@ -1,0 +1,6 @@
+<% flash.each do |type, message| %>
+	<br />
+	<div class="alert <%= bootstrap_class_for(type) %>" role="alert">
+	  <%= message %>
+	</div>
+<% end %>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ElasticJobs</title>
+  <%= stylesheet_link_tag    'application' %>
+  <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag 'jobs/index.js' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="navbar-wrapper cbp-af-header">
+
+  <%= render partial: "partials/header_menu" %>
+
+</div>
+
+<div class="intro">
+  <div class="container banner-inner">
+    <div class="row">
+      <div class="center-block">
+        <div class="intro-text wow bounceInDown">
+          <h1>Time-<span class="wow rubberBand" data-wow-delay="1s">Flexible</span> Jobs For</h1>
+          <h2 id="text-slider">Students, Parents, Extra Income</h2>
+          <div class="cta">
+            <button id="goToJobs" class="btn"><span>Search jobs</span></button>
+			<a class="btn" href="<%= new_job_path %>">Post a job</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="main-container" class="container">
+    <div class="row">
+        <div class="col-md-12">
+          <%= render partial: "partials/flash_messages", flash: flash %>
+          <%= yield %>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

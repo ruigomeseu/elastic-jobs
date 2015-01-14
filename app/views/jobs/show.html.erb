@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-md-8">
+	<h1><%= @job.title %></h1>
+
+	<h2>Description</h2>
+
+	<p><%= markdown(@job.description) %></p>
+
+	<br />
+
+	<h2>How to Apply</h2>
+
+	<p><%= markdown(@job.application) %></p>
+  </div>
+  <div class="col-md-4">
+	<h2>Job Details</h2>
+
+	<div class="company-info">
+	  <div class="company-logo">
+		<%= image_tag @job.logo.url(:thumb) %>
+	  </div>
+	  <div class="company-name">
+		<p><%= @job.company_name %></p>
+	  </div>
+
+	</div>
+
+
+
+
+	<h3>Tags</h3>
+	<div class="skills">
+	<% @job.tags.each do |tag| %>
+		<span><%= tag.name %></span>
+	<% end %>
+	  </div>
+
+
+  </p>
+  </div>
+</div>

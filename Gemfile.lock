@@ -1,5 +1,6 @@
 GEM
   remote: https://rubygems.org/
+  remote: https://rails-assets.org/
   specs:
     actionmailer (4.1.8)
       actionpack (= 4.1.8)
@@ -31,6 +32,11 @@ GEM
     autoprefixer-rails (4.0.2.1)
       execjs
     awesome_print (1.2.0)
+    aws-sdk (1.60.2)
+      aws-sdk-v1 (= 1.60.2)
+    aws-sdk-v1 (1.60.2)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4)
     bcrypt (3.1.7)
     better_errors (2.0.0)
       coderay (>= 1.0.0)
@@ -49,6 +55,10 @@ GEM
       xpath (~> 2.0)
     celluloid (0.16.0)
       timers (~> 4.0.0)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.5)
+      climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -69,6 +79,8 @@ GEM
     erubis (2.7.0)
     execjs (2.2.2)
     ffi (1.9.6)
+    figaro (1.0.0)
+      thor (~> 0.14)
     formatador (0.2.5)
     guard (2.10.2)
       formatador (>= 0.2.4)
@@ -104,9 +116,15 @@ GEM
     mini_portile (0.6.1)
     minitest (5.5.0)
     multi_json (1.10.1)
+    netrc (0.10.2)
     nokogiri (1.6.5)
       mini_portile (~> 0.6.0)
     orm_adapter (0.5.0)
+    paperclip (4.2.1)
+      activemodel (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.5.3)
+      mime-types
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -126,6 +144,18 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.1.8)
       sprockets-rails (~> 2.0)
+    rails-assets-animate.css (3.2.0)
+    rails-assets-bootstrap (3.3.1)
+      rails-assets-jquery (>= 1.9.0)
+    rails-assets-bootstrap-markdown (2.8.0)
+      rails-assets-bootstrap (~> 3)
+    rails-assets-classie (1.0.1)
+    rails-assets-he (0.4.1)
+    rails-assets-jquery (2.1.3)
+    rails-assets-markdown-js (0.6.2)
+    rails-assets-to-markdown (0.0.2)
+      rails-assets-he (~> 0.4.1)
+    rails-assets-wow (1.0.2)
     railties (4.1.8)
       actionpack (= 4.1.8)
       activesupport (= 4.1.8)
@@ -137,9 +167,13 @@ GEM
       ffi (>= 0.5.0)
     rdoc (4.2.0)
       json (~> 1.4)
+    redcarpet (3.1.2)
     require_reloader (0.2.0)
     responders (1.1.1)
       railties (>= 3.2, < 4.2)
+    rest-client (1.7.2)
+      mime-types (>= 1.16, < 3.0)
+      netrc (~> 0.7)
     rspec (3.1.0)
       rspec-core (~> 3.1.0)
       rspec-expectations (~> 3.1.0)
@@ -181,6 +215,10 @@ GEM
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
     sqlite3 (1.3.10)
+    stripe (1.17.2)
+      json (~> 1.8.1)
+      mime-types (>= 1.25, < 3.0)
+      rest-client (~> 1.4)
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
@@ -204,24 +242,35 @@ PLATFORMS
 DEPENDENCIES
   autoprefixer-rails
   awesome_print
+  aws-sdk
   better_errors
   binding_of_caller
   bootstrap-sass (~> 3.3.1)
   capybara
   coffee-rails (~> 4.0.0)
   devise
+  figaro
   guard-rspec
   hash_validator
   jbuilder (~> 2.0)
   jquery-rails
+  paperclip
   pry
   pry-rails
   rails (= 4.1.8)
+  rails-assets-animate.css
+  rails-assets-bootstrap-markdown
+  rails-assets-classie
+  rails-assets-markdown-js
+  rails-assets-to-markdown
+  rails-assets-wow
+  redcarpet
   require_reloader
   rspec-rails
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   spring
   sqlite3
+  stripe
   turbolinks
   uglifier (>= 1.3.0)

@@ -1,0 +1,58 @@
+<h1>Post a Job</h1>
+
+<%= javascript_include_tag "bootstrap-tagsinput.min" %>
+<%= stylesheet_link_tag "bootstrap-tagsinput" %>
+
+<div class="form-group">
+  <%= form_for @job, url: {action: "create"}, html: {class: "nifty_form"}, multipart: true do |f| %>
+	  <div class="form-group">
+		<%= f.label :title, "Job Title" %>
+		<%= f.text_field :title, class: 'form-control' %>
+	  </div>
+
+	  <div class="form-group">
+		<%= f.label :company_name, "Company Name" %>
+		<%= f.text_field :company_name, class: 'form-control' %>
+	  </div>
+
+	  <div class="form-group">
+		<%= f.label :logo, "Company Logo" %>
+		<%= f.file_field :logo %>
+		<p class="help-block">Upload a high resolution square version of your logo, with transparency.</p>
+	  </div>
+
+	  <div class="form-group">
+		<%= f.label :weekly_hours, "Weekly Hours" %>
+		<%= f.text_field :weekly_hours, class: 'form-control' %>
+		<p class="help-block">Enter 0 for a totally flexible schedule, the employee works as little as he/she wants</p>
+	  </div>
+
+	  <div class="form-group">
+		<%= f.label :location, "Location" %>
+		<%= f.text_field :location, class: 'form-control' %>
+		<p class="help-block">If there are no location requirements, enter "Remote"</p>
+	  </div>
+
+	  <div class="form-group">
+		<%= f.label :description, "Description" %>
+		<textarea name="job[description]" data-provide="markdown" rows="10"></textarea>
+	  </div>
+
+	  <div class="form-group">
+		<%= f.label :application, "How to Apply" %>
+		<textarea name="job[application]" data-provide="markdown" rows="10"></textarea>
+	  </div>
+
+	  <div class="form-group">
+		<%= f.label :tags, "Tags" %><br />
+		<select multiple data-role="tagsinput" name="tags[]">
+		</select>
+	  </div>
+
+	  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+			  data-key="<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>"
+			  data-email="<%= current_user.email %>"
+			  data-description="ElasticJobs Job Post"
+			  data-amount="<%= @amount %>"></script>
+  <% end %>
+</div>

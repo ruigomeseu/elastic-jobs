@@ -12,6 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require classie
+//= require wow
 //= require bootstrap-sprockets
-//= require_tree .
+//= require markdown-js/dist/markdown.js
+//= require to-markdown
+//= require bootstrap-markdown
+
+new WOW().init();
