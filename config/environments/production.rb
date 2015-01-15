@@ -75,4 +75,29 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.action_mailer.perform_deliveries = true
+
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.default_url_options = {host: 'localhost', port: 3000}
+
+  config.action_mailer.smtp_settings = {
+    :address => ENV["MANDRILL_HOST"],
+    :port => ENV["MANDRILL_PORT"],
+    :enable_starttls_auto => true,
+    :user_name => ENV["MANDRILL_USERNAME"],
+    :password => ENV["MANDRILL_PASSWORD"],
+    :authentication => 'login',
+    :domain => 'elasticjobs.io',
+  }
+
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => ENV['S3_BUCKET_NAME'],
+      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+    }
+  }
 end
